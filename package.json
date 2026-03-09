@@ -1,0 +1,27 @@
+{
+  "name": "automa-ebac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barra7reds/Automa-EBAC.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Barra7reds/Automa-EBAC/issues"
+  },
+  "homepage": "https://github.com/Barra7reds/Automa-EBAC#readme",
+  "devDependencies": {
+    "cypress": "^15.10.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.3.0"
+  }
+}

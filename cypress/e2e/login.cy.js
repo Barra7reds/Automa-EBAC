@@ -1,18 +1,29 @@
 /// <reference types="cypress" />
+import { faker } from '@faker-js/faker';
 
-describe('Funcionalidade: Login', () => {
 
-    it('Deve fazer o login com sucesso', () => {
-        cy.visit(' http://lojaebac.ebaconline.art.br/')
-        cy.get('.dropdown-toggle > .zmdi').click()
-        cy.get('#topmenu > .menu-item-221 > a').click()
-        cy.get('[name="username"]').type('teste@77gmail.com')
-        cy.get('.woocommerce-form > :nth-child(2) > [name="password"]').type('teste123')
-        cy.get('[name="rememberme"]').click()
-        cy.get('[name="login"]').click()
+describe('Teste E2E do site da EBAC', () => {
 
+    it('Teste E2E do site da EBAC', () => {
+        cy.login('teste@77gmail.com', 'teste123')
+        cy.addProdutos('Cassia Funnel Sweatshirt')
+        cy.addProdutos2('Ariel Roll Sleeve Sweatshirt')
+        cy.addProdutos3('Ajax Full-Zip Sweatshirt')
+        cy.addProdutos4('Josie Yoga Jacket')
+        cy.get('.dropdown-toggle > .text-skin').click()
+        cy.get('#cart > .dropdown-menu > .widget_shopping_cart_content > .mini_cart_content > .mini_cart_inner > .mcart-border > .buttons > .checkout').click()
+        cy.url().should('contain', 'checkout')
+        cy.checkout()
+
+        
+
+        
+    
     });
+
+
+
+
 
 });
 
-//Melhorias gerais serão feitas quando eu estiver com mais polimento, mas essas versões mesmo rudimentares, já estão funcionando.
