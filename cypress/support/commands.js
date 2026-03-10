@@ -71,8 +71,10 @@ Cypress.Commands.add('addProdutos4', (produto) => {
        cy.get('.single_add_to_cart_button').click()
 })
 
+import { faker } from '@faker-js/faker';
+
 Cypress.Commands.add('checkout', () => {
-       let nome = faker.name.firstName()
+       let nome = faker.person.firstName()
        let sobrenome = faker.person.lastName()
        let empresa = faker.company.name()
        let pais = faker.location.country()
