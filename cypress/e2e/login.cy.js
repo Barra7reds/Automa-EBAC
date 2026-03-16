@@ -13,6 +13,7 @@ describe('Teste E2E do site da EBAC', () => {
         cy.addProdutos('Ariel Roll Sleeve Sweatshirt', 'L', 'Green')
         cy.addProdutos('Ajax Full-Zip Sweatshirt', 'M', 'Blue')
         cy.addProdutos('Josie Yoga Jacket', 'L', 'Black')
+        cy.Checkout()
         
      
 

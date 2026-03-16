@@ -45,6 +45,31 @@ Cypress.Commands.add('addProdutos', (produto, tamanho, cor) => {
        cy.get(`.button-variable-item-${cor}`).click()
        cy.get('.single_add_to_cart_button').click()
 })
+
+Cypress.Commands.add('Checkout', () => {
+       cy.visit('http://lojaebac.ebaconline.art.br/checkout/')
+       cy.url().should('include', 'checkout')
+       let firstName = faker.person.firstName()
+       let lastName = faker.person.lastName()
+       let company = faker.company.name()
+       let address1 = faker.location.street()
+       let address2 = faker.location.secondaryAddress()
+       let city = faker.location.city()
+       let postcode = faker.location.zipCode('#####-###')
+       let phone = faker.phone.number('51 9####-####')
+
+       cy.get('[name="billing_first_name"]').type(firstName).clear().type(firstName)
+       cy.get('[name="billing_last_name"]').type(lastName).clear().type(lastName)
+       cy.get('[name="billing_company"]').type(company).clear().type(company)
+       cy.get('[name="billing_address_1"]').type(address1).clear().type(address1)
+       cy.get('[name="billing_address_2"]').type(address2).clear().type(address2)
+       cy.get('[name="billing_city"]').type(city).clear().type(city)
+       cy.get('[name="billing_postcode"]').type(postcode).clear().type('98765-432')
+       cy.get('[name="billing_phone"]').type(phone).clear().type(51 + '9876-5432')
+       cy.get('#payment_method_bacs').click()
+       cy.get('#terms').click()
+       cy.get('#place_order').click()
+})
        
     
       
