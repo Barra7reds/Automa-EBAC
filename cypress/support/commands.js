@@ -37,9 +37,10 @@ Cypress.Commands.add('login', (email, password) => {
 import { faker } from '@faker-js/faker';
 
 Cypress.Commands.add('addProdutos', (produto, tamanho, cor) => {
-       cy.visit('http://lojaebac.ebaconline.art.br/home-3/')
-       cy.get('.search > .tbay-search-form > .form-ajax-search > .form-group > .input-group > [name="s"]').type(produto)
-       cy.get('.search > .tbay-search-form > .form-ajax-search > .form-group > .input-group > .button-group > .button-search').click()
+       cy.visit('/home-3/')
+       cy.get('.search-form > .btn').eq(1).click({ force: true })
+       cy.get('[name="s"]').eq(2).type(produto, { force: true })
+       cy.get('.button-search').eq(2).click({ force: true })
        cy.get('.variations_form.cart').should('be.visible')
        cy.get(`.button-variable-item-${tamanho}`).click()
        cy.get(`.button-variable-item-${cor}`).click()
@@ -47,7 +48,7 @@ Cypress.Commands.add('addProdutos', (produto, tamanho, cor) => {
 })
 
 Cypress.Commands.add('Checkout', () => {
-       cy.visit('http://lojaebac.ebaconline.art.br/checkout/')
+       cy.visit('/checkout/')
        cy.url().should('include', 'checkout')
        let firstName = faker.person.firstName()
        let lastName = faker.person.lastName()

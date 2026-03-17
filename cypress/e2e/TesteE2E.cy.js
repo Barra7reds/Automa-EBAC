@@ -5,7 +5,7 @@ import { faker } from '@faker-js/faker';
 describe('Teste E2E do site da EBAC', () => { 
 
      beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/')
+        cy.visit('/')
     })
     it('Teste E2E do site da EBAC', () => {
         cy.login('teste@77gmail.com', 'teste123')
@@ -15,10 +15,7 @@ describe('Teste E2E do site da EBAC', () => {
         cy.addProdutos('Josie Yoga Jacket', 'L', 'Black')
         cy.Checkout()
         
-     
-
-
-
+    
 
     });
 
