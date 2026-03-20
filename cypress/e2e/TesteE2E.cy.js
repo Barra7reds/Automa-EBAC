@@ -2,9 +2,9 @@
 import { faker } from '@faker-js/faker';
 
 
-describe('Teste E2E do site da EBAC', () => { 
+describe('Teste E2E do site da EBAC', () => {
 
-     beforeEach(() => {
+    beforeEach(() => {
         cy.visit('/')
     })
     it('Teste E2E do site da EBAC', () => {
@@ -14,14 +14,7 @@ describe('Teste E2E do site da EBAC', () => {
         cy.addProdutos('Ajax Full-Zip Sweatshirt', 'M', 'Blue')
         cy.addProdutos('Josie Yoga Jacket', 'L', 'Black')
         cy.Checkout()
-        
-    
-
     });
-
-
-
-
 
 });
 

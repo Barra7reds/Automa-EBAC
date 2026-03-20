@@ -31,6 +31,7 @@ Cypress.Commands.add('login', (email, password) => {
        cy.get('.woocommerce-form > :nth-child(2) > [name="password"]').type(password)
        cy.get('[name="rememberme"]').click()
        cy.get('[name="login"]').click()
+       cy.get('.page-title').should('contain', 'Minha conta')
        cy.url().should('contain', 'my-account')
 
 })
@@ -45,10 +46,12 @@ Cypress.Commands.add('addProdutos', (produto, tamanho, cor) => {
        cy.get(`.button-variable-item-${tamanho}`).click()
        cy.get(`.button-variable-item-${cor}`).click()
        cy.get('.single_add_to_cart_button').click()
+       cy.get('.woocommerce-message').should('contain', 'foi adicionado no seu carrinho')
 })
 
 Cypress.Commands.add('Checkout', () => {
        cy.visit('/checkout/')
+       cy.get('.page-title').should('contain', 'Checkout')
        cy.url().should('include', 'checkout')
        let firstName = faker.person.firstName()
        let lastName = faker.person.lastName()
@@ -70,6 +73,7 @@ Cypress.Commands.add('Checkout', () => {
        cy.get('#payment_method_bacs').click()
        cy.get('#terms').click()
        cy.get('#place_order').click()
+       cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')
 })
        
     
